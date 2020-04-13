@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <head>
+        <title>my forum!</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+</head>
+<body class="black">
+    <div class="navbar-fixed blue ">
+        <nav>
+        <div class="nav-wrapper grey">
+            <a href="" class="text-white">users</a>
+        </div>
+        </nav>
+    </div>
+    <div class="row">
+        <div id="users" class="col s12">
+          <% user.forEach(function(user) { %>
+            <div class="card blue-grey">
+              <div class="card-content white-text">
+                <div>
+                  <span class="card-title">
+                    <i class="small material-icons">perm_identity</i>
+                    <span class="user-name"><%= user.name %></span>
+                  </span>
+                </div>
+                <ul class="collection">
+                  <% user.posts.forEach(function(post) { %>
+                    <li class="collection-item blue-grey-text text-darken-2"><%- post.text %></li>
+                  <% }) %>
+                </ul>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
