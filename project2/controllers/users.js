@@ -21,12 +21,15 @@ function index(req, res, next) {
   }
 
   function addPost(req, res, next) {
+    console.log(req.user);
     req.user.posts.push(req.body);
     req.user.save(function(err) {
-        // console.log(post);
+      console.log('!!!!', posts);
       res.redirect('/users');
     });
   }
+
+
 //add middleware to get delete to work
   function delPost(req, res, next) {
     User.findOne({'posts._id': req.params.id}, function(err, user) {
