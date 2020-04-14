@@ -1,42 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <head>
-        <title>my forum!</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
-</head>
-<body class="black">
-    <div class="navbar-fixed blue ">
-        <nav>
-        <div class="nav-wrapper grey">
-            <a href="" class="text-white">users</a>
-        </div>
-        </nav>
-    </div>
+<%- include('../partials/header') %>
     <div class="row">
         <div id="users" class="col s12">
-          <% user.forEach(function(user) { %>
-            <div class="card blue-grey">
+          <% users.forEach(function(user) { %>
+            <div class="card blue darken-4">
               <div class="card-content white-text">
                 <div>
                   <span class="card-title">
-                    <i class="small material-icons">perm_identity</i>
+                    <i class="small material-icons"perm_identity></i>
                     <span class="user-name"><%= user.name %></span>
                   </span>
                 </div>
                 <ul class="collection">
+
                   <% user.posts.forEach(function(post) { %>
-                    <li class="collection-item blue-grey-text text-darken-2"><%- post.text %></li>
+                    <li class="collection-item blue-grey-text text-darken-2"> 
+                        <!-- make this contain a div -->
+                  
+                      <span class="title"><%- post.text %></span>  
+                      <!-- another forEach  posts.comment.forEach-->
+                      <% if (user._id.equals(user && user.id)) { %>
+                        <form action="/users/<%= post._id %>?_method=DELETE" method="POST" class="secondary-content">
+                          <button type="submit" class="btn-small red-text">X</button>
+                        </form> 
+                        <% } %>
+                    </li>
+
                   <% }) %>
                 </ul>
+                <% if (user._id.equals(user && user._id)) { %>
+                  <div class="card-action">
+                    <form action="/users" method="POST">
+                      <input type="text" name="text" class="blue darken-4">
+                      <button  class="btn red white-text">Add post</button>
+                    </form>
+                  </div>
+                <% } %>
               </div>
             </div>
           <% }) %>
         </div>
       </div>
     </div>
-</body>
-</html>
+
+    <%- include('../partials/footer') %>
