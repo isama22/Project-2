@@ -9,17 +9,20 @@ const commentSchema = new mongoose.Schema({
 );
 //make this a referenced schema in a different file
 const postSchema = new mongoose.Schema({
-    post: {
+    text: {
         type: String,
-        comments: [commentSchema]
+      
     },
     category: {
-        enum: ['mainPage', 'techniques', 'events', 'artists', 'resourceLinks']
+        type: String,
+        enum: ['mainPage', 'techniques', 'events', 'artists', 'resourceLinks', 'posts']
     },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'},
-},
+        comments: [commentSchema],
+},  
+
     { timestamps: true }
 );
 module.exports = mongoose.model('Post', postSchema);

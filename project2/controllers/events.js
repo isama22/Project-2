@@ -20,14 +20,21 @@ function index(req, res, next) {
   });
 }
 
-function addPost(req, res, next) {
-  req.user.posts.push(req.body);
-  // console.log('!!!!', posts);
-  req.user.save(function(err) {
+// function addPost(req, res, next) {
+//   req.user.posts.push(req.body);
+//   // console.log('!!!!', posts);
+//   req.user.save(function(err) {
+//     res.redirect('/events');
+//   });
+// }
+function addPost (req, res, next) {
+  console.log(req.body);
+  const post = new Post(req.body)
+  post.save(function(err) {
+    console.log('events page post', posts);
     res.redirect('/events');
   });
 }
-
 module.exports = {
     index,
     addPost
