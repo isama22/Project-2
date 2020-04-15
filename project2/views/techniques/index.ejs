@@ -1,26 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</head>
-<body>
-    <div class="navbar-fixed blue ">
-        <nav>
-          <div class="nav-wrapper grey">
-            <ul>
-              <li><a href="/users">Main Page</a></li>
-              <li><a href="/techniques">Techniques</a></li>
-              <li><a href="/events">Events</a></li>
-              <li><a href="/artists">Artists</a></li>
-              <li><a href="/resourceLinks">Resource Links</a></li>
-            </ul>
-            </div>>
-         </nav>
-            </div>
-    <h1>techniques page</h1>
-</body>
-</html>
+<%- include('../partials/header') %>
+<div class="row">
+  <div id="users" class="col s12">
+   
+    <div class="card black">
+      <div class="card-content white-text">
+        <ul class="collection">
+          <% posts.forEach(function(post) { %>
+          <li class="collection-item  text-darken-2">
+            <!-- make this contain a div -->
+            <span class="title"><%- post.text %></span>
+            <!-- another forEach  posts.comment.forEach-->
+          </li>
+          <% }  ) %>
+        </ul>
+        <div class="card-action">
+          <form action="/artists" method="POST">
+            <input type="hidden" name="artists">
+            <input type="text" name="text" class="black white-text">
+            <button class="btn red white-text">Add post</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<%- include('../partials/footer') %>

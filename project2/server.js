@@ -11,7 +11,7 @@ require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var postsRouter = require('./routes/posts');
 const resourceLinksRouter = require('./routes/resourceLinks');
 const artistsRouter = require('./routes/artists');
 const eventsRouter = require('./routes/events');
@@ -37,7 +37,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
 app.use('/resourceLinks', resourceLinksRouter);
 app.use('/artists', artistsRouter);
 app.use('/events', eventsRouter);
