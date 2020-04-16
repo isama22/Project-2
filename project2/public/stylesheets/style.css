@@ -2,36 +2,27 @@ body {
     background-image: url(https://i.imgur.com/sNQtOP1.jpg);
     background-size: 200px;
 }
-.nav-wrapper {
+.navbar-fixed {
     border: solid;
     border-width: 1px;
-    border-color: aqua;
+    border-color: #00ffff;
     opacity: 0.9;
+
 }
 
-/* .row {
-    width: 600px;
-
+/* .banner {
+    width: 700px;
+align-content: center;
 } */
-/* 
-.card {
-
-    border: solid;
-    border-width: 1px;
-    border-color: aqua;
-}
-.row {
-    display: flex;
-    justify-content: center;
-    /* margin-left: ; */
-/* }
-.card-content {
-    opacity: 95%;
-}  */
-
 h4 {
     width: 15%;
     display: flex;
     justify-content: center;
     
 }
+
+form {
+    width: 50%;
+}
+
+

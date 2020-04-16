@@ -9,8 +9,9 @@ function isLoggedIn(req, res, next) {
 
 router.get('/', resourceLinksCtrl.index);
 router.post('/', isLoggedIn, resourceLinksCtrl.addPost);
-// router.get('/users/:id/resourceLinks', resourceLinksCtrl.index);
 
-// router.get('/resourceLinks', () => {res.send('this is the links page!')})
+router.delete('/posts/:id', resourceLinksCtrl.delPost);
+
+//router.put('/:id', resourceLinksCtrl.update);
 
 module.exports = router;

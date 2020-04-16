@@ -1,26 +1,23 @@
 <%- include('../partials/header') %>
 <div class="row">
   <div id="users" class="col s12">
-   
-    <div class="card black">
+    <!-- <div class="card black"> -->
       <div class="card-content white-text">
-        <ul class="collection">
+        <div class="collection col s6">
           <% posts.forEach(function(post) { %>
-          <li class="collection-item  text-darken-2">
-            <!-- make this contain a div -->
+          <div class="collection-item  text-darken-2">
             <span class="title black-text"><%= post.text %>-<%= post.category %></span>
-            <!-- another forEach  posts.comment.forEach-->
-          </li>
-          <% }  ) %>
-        </ul>
+          </div><br>
+          <% }) %>
+        </div>
         <div class="card-action">
           <form action="/techniques" method="POST">
-            <input type="text" name="text" class="black white-text">
+            <input type="text" name="text" class="white black-text">
             <button class="btn red white-text">Add post</button>
           </form>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 </div>
 </div>
