@@ -11,7 +11,7 @@ const commentSchema = new mongoose.Schema({
 const postSchema = new mongoose.Schema({
     text: {
         type: String,
-      
+
     },
     category: {
         type: String,
@@ -19,10 +19,10 @@ const postSchema = new mongoose.Schema({
     },
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'User'},
-        comments: [commentSchema],
-},  
-
+        ref: 'User'
+    },
+    comments: [commentSchema],
+},
     { timestamps: true }
 );
 module.exports = mongoose.model('Post', postSchema);

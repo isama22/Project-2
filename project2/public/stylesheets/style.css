@@ -5,17 +5,33 @@ body {
 .nav-wrapper {
     border: solid;
     border-width: 1px;
+    border-color: aqua;
+    opacity: 0.9;
 }
 
 /* .row {
     width: 600px;
 
 } */
+/* 
+.card {
 
-/* .card {
-    opacity: 0.5;
-} */
+    border: solid;
+    border-width: 1px;
+    border-color: aqua;
+}
+.row {
+    display: flex;
+    justify-content: center;
+    /* margin-left: ; */
+/* }
+.card-content {
+    opacity: 95%;
+}  */
 
 h4 {
     width: 15%;
+    display: flex;
+    justify-content: center;
+    
 }

@@ -5,36 +5,34 @@ const Post = require('../models/post');
 // }
 
 function index(req, res, next) {
-  // console.log(req.query)
-  let modelQuery = {
+  Post.find({
     category: 'events'
-  }
-  Post.find(modelQuery).exec(function(err, posts) {
+  }).exec(function(err, posts) {
     if (err) return next(err);
     // Passing search values, name & sortKey, for use in the EJS
     res.render('events/index', { 
       posts, 
-      post: req.post,
       user: req.user
        });
   });
 }
 
-// function addPost(req, res, next) {
-//   req.user.posts.push(req.body);
-//   // console.log('!!!!', posts);
-//   req.user.save(function(err) {
-//     res.redirect('/events');
-//   });
-// }
-function addPost (req, res, next) {
-  console.log(req.body);
+
+
+function addPost(req, res, next) {
+  req.body.category = 'events';
+  //console.log('req.body', req.body);
   const post = new Post(req.body)
-  post.save(function(err) {
-    console.log('events page post', posts);
+  post.save(function (err, posts) {
+    console.log('last added', posts);
     res.redirect('/events');
   });
 }
+
+
+
+
+
 module.exports = {
     index,
     addPost

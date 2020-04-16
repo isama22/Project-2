@@ -7,15 +7,14 @@
           <% posts.forEach(function(post) { %>
           <li class="collection-item  text-darken-2">
             <!-- make this contain a div -->
-            <span class="title"><%- post.text %></span>
+            <span class="title black-text"><%- post.text %>-<%= post.category %></span>
             <!-- another forEach  posts.comment.forEach-->
           </li>
           <% }  ) %>
         </ul>
 
         <div class="card-action">
-          <form action="/artists" method="POST">
-            <input type="hidden" name="artists">
+          <form action="/events" method="POST">
             <input type="text" name="text" class="black white-text">
             <button class="btn red white-text">Add post</button>
           </form>

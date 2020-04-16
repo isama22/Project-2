@@ -5,6 +5,7 @@ const artistsCtrl = require('../controllers/artists');
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated() ) return next();
     res.redirect('/auth/google');
+    //res.redirect('/artists');
 }
 router.get('/', artistsCtrl.index);
 //router.get('/artists', () => {res.send('this is the about page!')})

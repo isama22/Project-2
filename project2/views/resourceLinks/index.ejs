@@ -1,6 +1,4 @@
 <%- include('../partials/header') %>
-
-    <h4 class="card black white-text" >Add a Link!</h4>
 <div class="row">
   <div id="users" class="col s12">
     <div class="card black">
@@ -8,15 +6,12 @@
         <ul class="collection">
           <% posts.forEach(function(post) { %>
           <li class="collection-item  text-darken-2">
-            <!-- make this contain a div -->
-            <span class="title"><%- post.text %></span>
-            <!-- another forEach  posts.comment.forEach-->
+            <span class="title black-text"><%= post.text %>-<%= post.category %></span>
           </li>
-          <% })%>
+          <% }) %>
         </ul>
         <div class="card-action">
           <form action="/resourceLinks" method="POST">
-            <input type="hidden" name="resourceLinks">
             <input type="text" name="text" class="black white-text">
             <button class="btn red white-text">Add post</button>
           </form>

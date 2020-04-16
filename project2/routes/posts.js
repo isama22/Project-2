@@ -4,6 +4,7 @@ const postsCtrl = require('../controllers/posts');
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated() ) return next();
     res.redirect('/auth/google');
+    //res.redirect('/posts');
 }
 /* GET users listing. */
 router.get('/', postsCtrl.index);

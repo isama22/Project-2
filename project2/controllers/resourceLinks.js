@@ -5,34 +5,23 @@ const Post = require('../models/post');
 
 // }
 function index(req, res, next) {
-  // console.log(req.query)
-  let modelQuery = {
-    category: 'resourceLinks'
-  }
-  Post.find(modelQuery).exec(function(err, posts) {
+  Post.find({
+    category:'resourceLinks'
+  })
+  .exec(function (err, posts) {
     if (err) return next(err);
-    // Passing search values, name & sortKey, for use in the EJS
-    res.render('resourceLinks/index', { 
-      posts, 
-      post: req.post,
+    res.render('resourceLinks/index', {
+      posts,
       user: req.user
-       });
+    });
   });
 }
 
-// function addPost(req, res, next) {
-//   req.user.posts.push(req.body);
-//   // console.log('!!!!', posts);
-//   req.user.save(function(err) {
-//     res.redirect('/resourceLinks');
-//   });
-// }
-
 function addPost(req, res, next) {
-  console.log(req.user);
+  req.body.category = 'resourceLinks';
   const post = new Post(req.body)
-  post.save(function(err) {
-    console.log('resourceLinks page post', posts);
+  post.save(function (err, posts) {
+    console.log('!!!! last added post', posts);
     res.redirect('/resourceLinks');
   });
 }
