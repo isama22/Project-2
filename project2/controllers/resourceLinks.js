@@ -5,16 +5,16 @@ const Post = require('../models/post');
 // }
 function index(req, res, next) {
   Post.find({
-    category:'resourceLinks'
+    category: 'resourceLinks'
   })
-  .exec(function (err, posts) {
-    //console.log('all!!!!!!', posts);
-    if (err) return next(err);
-    res.render('resourceLinks/index', {
-      posts,
-      user: req.user
+    .exec(function (err, posts) {
+      //console.log('all!!!!!!', posts);
+      if (err) return next(err);
+      res.render('resourceLinks/index', {
+        posts,
+        user: req.user
+      });
     });
-  });
 }
 
 function addPost(req, res, next) {
@@ -26,33 +26,68 @@ function addPost(req, res, next) {
   });
 }
 
-//fix!
+
 function delPost(req, res, next) {
-  Post.findByIdAndRemove(req.params.id), function(err, posts) {
-    console.log('!!!!!!removed', posts);
-      res.redirect('/resourceLinks');
-  };
+  Post.deleteOne({_id:req.params.id})
+  .then((err) => {
+         res.redirect('/resourceLinks');
+  })
 }
 
-// function delPost(req, res) {
-//   Post.deleteOne(req.params.id);
-//   res.redirect('/resourceLinks')
-// };
+  function editPost(req, res) {
+    Post.findById({_id:req.params.id}, (err, posts) => {
+      res.render('./resourceLinks/edit.ejs', {
+        posts,
+        user: req.user
+      })
+    })
+  }
+ 
+function updatePost(req, res) {
+  Post.findByIdAndUpdate(req.params.id, req.body, (err, posts) => {
+    res.redirect('/resourceLinks');
+  }
+);
+}
 
-// function delPost(req, res, next) {
-//   User.findOne({'posts._id': req.params.id}, function(err, posts) {
-//     user.posts.id(req.params.id).remove();
-//     user.save(function(err) {
-//       res.redirect('/resourceLinks');
-//     });
+
+// function addComment (req, res) {
+// Post.findById(req.params.id, function(err, post) {
+//   post.comment.push(req.body)
+//   post.save(function(err) {
+//     res.redirect('/resourceLinks')
+//   })
+// })
+// }
+
+function addComment (req, res) {
+  Post.findById(req.params.id, function(err, post) {
+    post.comment.push(req.body)
+    post.save(function(err) {
+      res.redirect('/resourceLinks')
+    })
+  })
+  }
+
+
+
+// function addComment(req, res) {
+//   const comment = req.body
+//   Post.findById({_id:req.params.id}, (err, post) => {
+//     console.log('11111', req.params.id);
+//     post.comments.push(comment)
+//   })
+//   comment.save(function (err, comments) {
+//     console.log('!!!! last added comment', comments);
+//     res.redirect('/resourceLinks');
 //   });
 // }
 
-//function updatePost()
-
-module.exports = {
+  module.exports = {
     index,
     addPost,
     delPost,
-    //updatePost
-};
+    editPost,
+    updatePost,
+    addComment
+  };

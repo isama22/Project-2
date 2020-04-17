@@ -25,20 +25,17 @@ function addPost(req, res, next) {
 }
 
 
-//add method ovverride middleware to get delete to work
-// function delPost(req, res, next) {
-//   User.findOne({ 'posts._id': req.params.id }, function (err, post) {
-//     user.post.id(req.params.id).remove();
-//     user.save(function (err) {
-//       res.redirect('/posts');
-//     });
-//   });
-// }
+function delPost(req, res, next) {
+  Post.deleteOne({_id:req.params.id})
+  .then((err) => {
+         res.redirect('/posts');
+  })
+}
 
 
 
 module.exports = {
   index,
   addPost,
-  //delPost
+  delPost
 }

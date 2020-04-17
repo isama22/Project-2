@@ -8,7 +8,7 @@ function isLoggedIn(req, res, next) {
 }
 /* GET users listing. */
 router.get('/', postsCtrl.index);
-//i dont have any show or new pages for users or the other pages so i dont nned any other userCtrl routes?
+router.delete('/:id', isLoggedIn, postsCtrl.delPost);
 
 router.post('/', isLoggedIn, postsCtrl.addPost);
 
