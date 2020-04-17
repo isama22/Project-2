@@ -1,8 +1,5 @@
 const Post = require('../models/post');
 
-// const index = (req, res) => {
-//   res.render('resourceLinks/index')
-// }
 function index(req, res, next) {
   Post.find({
     category: 'resourceLinks'
@@ -50,24 +47,14 @@ function updatePost(req, res) {
 );
 }
 
-
 // function addComment (req, res) {
-// Post.findById(req.params.id, function(err, post) {
-//   post.comment.push(req.body)
-//   post.save(function(err) {
-//     res.redirect('/resourceLinks')
+//   Post.findById(req.params.id, function(err, post) {
+//     post.comment.push(req.body)
+//     post.save(function(err) {
+//       res.redirect('/resourceLinks')
+//     })
 //   })
-// })
-// }
-
-function addComment (req, res) {
-  Post.findById(req.params.id, function(err, post) {
-    post.comment.push(req.body)
-    post.save(function(err) {
-      res.redirect('/resourceLinks')
-    })
-  })
-  }
+//   }
 
 // function addComment(req, res) {
 //   const comment = req.body
@@ -80,7 +67,16 @@ function addComment (req, res) {
 //     res.redirect('/resourceLinks');
 //   });
 // }
+const addComment = (req, res) => {
+Post.findById(req.params.id, function(err, posts) {
 
+    post.comments.push(req.body);
+    post.save(function(err) {
+      res.redirect('/resourceLinks')
+    })
+  }
+)
+}
   module.exports = {
     index,
     addPost,
