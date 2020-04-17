@@ -9,6 +9,6 @@ function isLoggedIn(req, res, next) {
 
  router.get('/', eventsCtrl.index);
  router.post('/', isLoggedIn, eventsCtrl.addPost);
-//router.get('/artists', () => {res.send('this is the about page!')})
+router.delete('/:id', isLoggedIn, eventsCtrl.delPost);
 
 module.exports = router;

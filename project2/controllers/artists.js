@@ -24,7 +24,15 @@ function addPost(req, res, next) {
   });
 }
 
+function delPost(req, res, next) {
+  Post.deleteOne({_id:req.params.id})
+  .then((err) => {
+         res.redirect('/artists');
+  })
+}
+
 module.exports = {
   index,
-  addPost
+  addPost,
+  delPost
 };
