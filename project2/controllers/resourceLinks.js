@@ -69,8 +69,6 @@ function addComment (req, res) {
   })
   }
 
-
-
 // function addComment(req, res) {
 //   const comment = req.body
 //   Post.findById({_id:req.params.id}, (err, post) => {

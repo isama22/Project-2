@@ -9,7 +9,7 @@ function isLoggedIn(req, res, next) {
 
 router.get('/', resourceLinksCtrl.index);
 router.post('/', isLoggedIn, resourceLinksCtrl.addPost);
-router.post('/', isLoggedIn, resourceLinksCtrl.addComment);
+router.post('/:id/comment', isLoggedIn, resourceLinksCtrl.addComment);
 router.delete('/:id', isLoggedIn, resourceLinksCtrl.delPost);
 router.get('/:id/edit', isLoggedIn, resourceLinksCtrl.editPost);
 router.put('/:id', resourceLinksCtrl.updatePost)

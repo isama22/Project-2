@@ -30,8 +30,26 @@ function delPost(req, res, next) {
          res.redirect('/techniques');
   })
 }
+
+function editPost(req, res) {
+  Post.findById({_id:req.params.id}, (err, posts) => {
+    res.render('./techniques/edit.ejs', {
+      posts,
+      user: req.user
+    })
+  })
+}
+
+function updatePost(req, res) {
+Post.findByIdAndUpdate(req.params.id, req.body, (err, posts) => {
+  res.redirect('/techniques');
+}
+);
+}
 module.exports = {
     index,
     addPost,
-    delPost
+    delPost,
+    editPost,
+    updatePost
 };
