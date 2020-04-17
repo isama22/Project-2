@@ -11,6 +11,7 @@ HTML, CSS, Node.js, Express, MongoDB & Mongoose.
 Planning:
 Trello-
 https://trello.com/b/eX0n45Lm/sei-project-2
+<br>
 ERD-
 https://www.lucidchart.com/documents/edit/32e533ed-b3c0-49d6-9696-cade45de4ac9/0_0
 
