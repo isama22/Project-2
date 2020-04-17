@@ -6,7 +6,7 @@ A site in progress to share artists of interest, techniques, events, and resourc
 
 <em>Technologies Used:</em>
 
-HTML, CSS, Node.js, Express, MongoDB & Mongoose.
+HTML, CSS, Node.js, Express, OAuth, MongoDB & Mongoose.
 
 Planning:
 Trello-
