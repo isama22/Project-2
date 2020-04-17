@@ -16,7 +16,7 @@ ERD-
 https://www.lucidchart.com/documents/edit/32e533ed-b3c0-49d6-9696-cade45de4ac9/0_0
 
 Deployed App:
-
+https://isasproject2.herokuapp.com/posts
 
 Next Steps:
 Next I want to enable users to upload photos, post links that are clickable, be able to use hastags to create new categories, reformat my layout, have user names appear with their posts, and ultra ice box goal is to let users choose different fonts to post their text with.
