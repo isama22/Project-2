@@ -11,4 +11,6 @@ router.get('/', artistsCtrl.index);
 //router.get('/artists', () => {res.send('this is the about page!')})
 router.post('/', isLoggedIn, artistsCtrl.addPost);
 router.delete('/:id', isLoggedIn, artistsCtrl.delPost);
+router.get('/:id/edit', isLoggedIn, artistsCtrl.editPost);
+router.put('/:id', artistsCtrl.updatePost)
 module.exports = router;

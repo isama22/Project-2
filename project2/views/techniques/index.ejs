@@ -6,7 +6,7 @@
         <div class="collection col s6">
           <% posts.forEach(function(post) { %>
           <div class="collection-item  text-darken-2">
-            <span class="title black-text"><%= post.text %>-<%= post.category %></span>
+            <span class="title black-text"><%= post.text %></span>
             <form action="/techniques/<%= post._id %>?_method=DELETE" method="POST" class="secondary-content">
 
               <button type="submit" class="waves-effect waves-teal btn-flat red-text">x</button>
